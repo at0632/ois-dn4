@@ -24,7 +24,13 @@
 						<div class="row">
 							<div class="col-lg-8 col-md-8 col-sm-8"><b>Kreiraj EHR zapis</b> za novega bolnika</div>
 							<div class="col-lg-4 col-md-4 col-sm-4">
-								<select class="form-control input-sm" id="preberiPredlogoBolnika"><option value=""></option><option value="Pujsa,Pepa,1938-10-30T14:58">Pujsa Pepa</option></select></div>
+								<select class="form-control input-sm" id="preberiPredlogoBolnika">
+									<option value=""></option>
+									<option value="Janez,Novak,MALE,1938-10-30T14:58">Pujsa Pepa</option>
+									<option value="sa,Novak,1938-10-30T14:58">Pujsa Pepa</option>
+									<option value=",Pepa,1938-10-30T14:58">Pujsa Pepa</option>
+								</select>
+							</div>
 						</div>
 					</div>
 					<div class="panel-body">
@@ -33,6 +39,22 @@
 						<span class="label label-default">Spol</span><select class="form-control" id="kreirajSpol"><option value=""></option><option value="MALE">MALE</option><option value="FEMALE">FEMALE</option></select>
 						<span class="label label-default">Datum rojstva</span><input id="kreirajDatumRojstva" type="text" class="form-control" placeholder="1957-03-10T09:08">
 						<span class="label label-default">Kraj bivanja</span><input id="kreirajKraj" type="text" class="form-control" placeholder="Ljubljana">
+						<div class="well">
+  <div id="datetimepicker1" class="input-append date">
+    <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker1').datetimepicker({
+      language: 'pt-BR'
+    });
+  });
+</script>
 						<button type="button" class="btn btn-primary btn-xs" onclick="kreirajEHRzaBolnika()">Dodaj osnovne podatke o bolniku</button><span id="kreirajSporocilo"></span>
 				  	</div>
 				</div>

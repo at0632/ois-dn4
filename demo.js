@@ -7,8 +7,7 @@ var password = "ois4fri";
 function getSessionId() {
     var response = $.ajax({
         type: "POST",
-        url: baseUrl + "/session?username=" + encodeURIComponent(username) +
-                "&password=" + encodeURIComponent(password),
+        url: baseUrl + "/session?username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password),
         async: false
     });
     return response.responseJSON.sessionId;
@@ -24,7 +23,7 @@ function kreirajEHRzaBolnika() {
 	var datumRojstva = $("#kreirajDatumRojstva").val();
 	var kraj = $("#kreirajKraj").val();
 
-	if (!ime || !priimek || !datumRojstva || !kraj || ime.trim().length == 0 || priimek.trim().length == 0 || datumRojstva.trim().length == 0) {
+	if (!ime || !priimek || !datumRojstva || !kraj || !spol || ime.trim().length == 0 || priimek.trim().length == 0 || datumRojstva.trim().length == 0) {
 		$("#kreirajSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevane podatke!</span>");
 	} else {
 		$.ajaxSetup({
@@ -40,7 +39,7 @@ function kreirajEHRzaBolnika() {
 		            lastNames: priimek,
 		            gender: spol,
 		            dateOfBirth: datumRojstva,
-		            //address: {address: kraj},
+		            address: {address: kraj},
 		            partyAdditionalInfo: [{key: "ehrId", value: ehrId}]
 		        };
 		        $.ajax({
