@@ -40,9 +40,7 @@ function kreirajEHRzaBolnika() {
 		            lastNames: priimek,
 		            gender: spol,
 		            dateOfBirth: datumRojstva,
-		            address: {
-		            	address: kraj
-		            },
+		            //address: {address: kraj},
 		            partyAdditionalInfo: [{key: "ehrId", value: ehrId}]
 		        };
 		        $.ajax({
