@@ -1,4 +1,3 @@
-
 var baseUrl = 'https://rest.ehrscape.com/rest/v1';
 var queryUrl = baseUrl + '/query';
 
@@ -22,8 +21,9 @@ function kreirajEHRzaBolnika() {
 	var ime = $("#kreirajIme").val();
 	var priimek = $("#kreirajPriimek").val();
 	var datumRojstva = $("#kreirajDatumRojstva").val();
+	var kraj = $("#kreirajKraj").val();
 
-	if (!ime || !priimek || !datumRojstva || ime.trim().length == 0 || priimek.trim().length == 0 || datumRojstva.trim().length == 0) {
+	if (!ime || !priimek || !datumRojstva || !kraj || ime.trim().length == 0 || priimek.trim().length == 0 || datumRojstva.trim().length == 0) {
 		$("#kreirajSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevane podatke!</span>");
 	} else {
 		$.ajaxSetup({
@@ -38,6 +38,7 @@ function kreirajEHRzaBolnika() {
 		            firstNames: ime,
 		            lastNames: priimek,
 		            dateOfBirth: datumRojstva,
+		            address: kraj,
 		            partyAdditionalInfo: [{key: "ehrId", value: ehrId}]
 		        };
 		        $.ajax({
