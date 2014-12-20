@@ -36,20 +36,11 @@
 					<div class="panel-body">
 						<span class="label label-default">Ime</span><input id="kreirajIme" type="text" class="form-control input-mini" placeholder="Osama">
 						<span class="label label-default">Priimek</span><input id="kreirajPriimek" type="text" class="form-control" placeholder="Bin Laden">
-						<span class="label label-default">Spol</span><select class="form-control" id="kreirajSpol"><option value=""></option><option value="MALE">MALE</option><option value="FEMALE">FEMALE</option></select>
+						<span class="label label-default">Spol</span><form><input type="radio" name="sex" value="MALE" checked>Moški<input type="radio" name="sex" value="FEMALE">Ženski</form>
 						<span class="label label-default">Datum rojstva</span><input id="kreirajDatumRojstva" type="text" class="form-control" placeholder="1957-03-10T09:08">
 						<span class="label label-default">Kraj bivanja</span><input id="kreirajKraj" type="text" class="form-control" placeholder="Ljubljana">
-						<div class="input-append date form_datetime">
-    <input size="16" type="text" value="" readonly>
-    <span class="add-on"><i class="icon-th"></i></span>
-</div>
-
-<script type="text/javascript">
-    $(".form_datetime").datetimepicker({
-        format: "dd MM yyyy - hh:ii"
-    });
-</script>   
-</script>
+						<input type="text" id="datepicker">
+    
 						<button type="button" class="btn btn-primary btn-xs" onclick="kreirajEHRzaBolnika()">Dodaj osnovne podatke o bolniku</button><span id="kreirajSporocilo"></span>
 				  	</div>
 				</div>
