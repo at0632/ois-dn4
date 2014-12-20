@@ -20,6 +20,7 @@ function kreirajEHRzaBolnika() {
 
 	var ime = $("#kreirajIme").val();
 	var priimek = $("#kreirajPriimek").val();
+	var spol = $("#kreirajSpol").val();
 	var datumRojstva = $("#kreirajDatumRojstva").val();
 	var kraj = $("#kreirajKraj").val();
 
@@ -37,8 +38,11 @@ function kreirajEHRzaBolnika() {
 		        var partyData = {
 		            firstNames: ime,
 		            lastNames: priimek,
+		            gender: spol,
 		            dateOfBirth: datumRojstva,
-		            address: kraj,
+		            address: {
+		            	address: kraj
+		            },
 		            partyAdditionalInfo: [{key: "ehrId", value: ehrId}]
 		        };
 		        $.ajax({
