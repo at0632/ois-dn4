@@ -1,0 +1,914 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_head">
+
+    <script type="text/javascript" src='/js/jquery-1.8.2.min.js'></script>
+    <script type="text/javascript" src='/JSFunctions/Cookies/jquery.cookie.js'></script>
+    <script type="text/javascript" src='/JSFunctions/Cookies/jquery.cookiecuttr.js'></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.cookieCuttr({
+                cookieAnalytics: false,
+                cookiePolicyLink: '/Piskotki.html',
+                cookieMessage: 'Portal Szzzzs uporablja piškotke, ki si jih lahko <a class="cookies_popup" style="cursor:pointer; text-decoration:underline;" title="Podrobnosti o piškotkih">podrobneje ogledate tukaj</a>. Z nadaljno uporabo strani se strinjate z uporabo teh piškotkov.',
+                cookieAcceptButtonText: "V REDU"
+            });
+
+            //Domnevna privolitev
+            //$.cookie("cc_cookie_accept", "cc_cookie_accept", {
+            //    expires: 365,
+            //    path: '/'
+            //});
+        });
+    </script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="images/icons/favicon.ico" /><meta http-equiv="content-language" content="sl" /><meta http-equiv="language" content="sl-SI" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width" /><title>
+	Iskalnik - Szzzzs
+</title><link rel="stylesheet" href="style.css" /><link href="js/prettyPhoto/css/prettyPhoto.css" rel="stylesheet" /><link href="js/flexslider/flexslider.css" rel="stylesheet" /><link href="css/jquery.ui.all.css" rel="stylesheet" /><link href="css/jquery.ui.theme.css" rel="stylesheet" /><link href="css/media-queries.css" rel="stylesheet" /><link href="css/custom.css" rel="stylesheet" /><link href="/ResourceHandler.ashx?keys=CssPublic15.CssPublic16.CssGeneral4.CssLayout5" rel="stylesheet" type="text/css"></link>
+<script src="/ResourceHandler.ashx?keys=3.23.20.21.22.24.25.26.27.28.29.9.10.11.13" type="text/javascript"></script>
+
+
+    <script src="JSFunctions/Highlight.js" type="text/javascript" ></script>
+    
+    <!--[if lte IE 7]>
+
+            <style type="text/css">
+               /*<![CDATA[*/ 
+                    .notice-wrap {
+                        position: absolute;
+                        top: expression((document.body.clientHeight/2)+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+'px');
+                        left: expression((document.body.clientWidth/2)+((e=document.documentElement.scrollLeft)?e:document.body.scrollLeft)+'px');
+                    }
+                    .ajax_loader {
+                        position: absolute;
+                        top: expression(((document.body.clientHeight/2))+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+'px');
+                        left: expression(((document.body.clientWidth/2))+((e=document.documentElement.scrollLeft)?e:document.body.scrollLeft)+'px');
+                    }
+               /*]]>*/
+            </style>
+    <![endif]-->
+    
+<meta name="description" content="Strokovno združenje zasebnih zdravnikov in zobozdravnikov Slovenije" /></head>
+
+
+<body style="margin: 0px;">
+
+
+    <form name="aspnetForm" method="post" action="Iskalnik?specializations=23" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VSTATE" id="__VSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="
+__VIEWSTATE" value="" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=ts-J-Fv5Avca4rH5zM6MoOrv_xoJlhXi6QfIq9VAbfjYVMzoUakEpKUOZeFE9YvY-hpTxhQ5g3JoQzuZ-20h4YdFtRo1&amp;t=635199830887188881" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = '{"name":"sl-SI","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":false,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":".","CurrencySymbol":"€","NaNSymbol":"NaN","CurrencyNegativePattern":8,"NumberNegativePattern":1,"PercentPositivePattern":1,"PercentNegativePattern":1,"NegativeInfinitySymbol":"-neskončnost","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":".","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"neskončnost","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":".","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402297199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":false},"DateSeparator":".","FirstDayOfWeek":1,"CalendarWeekRule":0,"FullDateTimePattern":"d. MMMM yyyy H:mm:ss","LongDatePattern":"d. MMMM yyyy","LongTimePattern":"H:mm:ss","MonthDayPattern":"d. MMMM","PMDesignator":"","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"d.M.yyyy","ShortTimePattern":"H:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["ned","pon","tor","sre","čet","pet","sob"],"ShortestDayNames":["ne","po","to","sr","če","pe","so"],"DayNames":["nedelja","ponedeljek","torek","sreda","četrtek","petek","sobota"],"AbbreviatedMonthNames":["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""],"MonthNames":["januar","februar","marec","april","maj","junij","julij","avgust","september","oktober","november","december",""],"IsReadOnly":false,"NativeCalendarName":"gregorijanski koledar","AbbreviatedMonthGenitiveNames":["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec",""],"MonthGenitiveNames":["januar","februar","marec","april","maj","junij","julij","avgust","september","oktober","november","december",""]}}';//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=ORmFb_BN-s_SP3oXxFGNkssygkBp_XbjQnr9UcExHgRk29aG39ASyCDG6cy9cqid2obJ2SvQzPH9TxkL9w9MhIhxSRRT8q3LIRPlEqsBJ-CG5IweOHhrfHBeax5Nzts7PoidGHpPHbtTPxaJsPxKgjbguiX6haymibpXBSP9ce7tQjkgm3yIWkK-lzWYpikt-hRiXslLmEqBZXuRoKcIbNTO25qEkKxcVXEClUHs-UGSDgZC22-VGTxrgjWr8ACNFbXgwM9e3RC6O4Vyhcytka6TKEslOcP5-aG613sCYfG5i7EmY4bTmlhAq-j5Gerhwp87TQs-O3rpw2Bz1pMdfo8regVAcCbr3ljvd8Zzb3upfAj0UMc45tIhbf-azn03HVWorOJbqR-NlG9WszZX0buV0Ly_HaTOe6_jKruQCLqouke_fKJ7R-a-kM_bvBGKsor-WMyR2NznNvK9V-rV7gaMvi6ANnTt7W2kX-sr4U7-JaewoKyU5MMg-ZaM4hg8XD8oNZ5FobAocnu68ocrceUl_AkEuFtKk-IgDm1aY56tc6mTWpxL9eemmibZ_u_4cJRNHuOLtUKmzRLNQrLMnJoiqiPeQr8DxW86_gvt0j5ebOQY5pglvjGJzRqfMMkAPfAz8milNfpht9PLE7blcSzMiqi3sUae8QgIcVnpvdn772BBoOUtCbtdgortSk3tnMGBlb7TQC_Q_VER7tYIUxdzkN0m71LoZAyaG685LX52LKJaJt38W4Tj8dF273yAQKE5ntYZ_6NNxCFMzGaaiRGFrdo1" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWWQL+raDpAgLL/a+YDgL+8L7cDAL58JamCwLL/cPzBgL78L7cDAL68JamCwLL/YfiDAL88L7cDAL38JamCwLL/Zu9BQLx8L7cDAL48JamCwLL/f+EAQLy8L7cDAL98JamCwLL/ZPgCQL58ILLAgL+8JamCwLL/dfODwL68ILLAgL78JamCwLL/eupCAL38ILLAgL88JamCwLL/c/xAwL48ILLAgLx8JamCwLL/ePMDAL98ILLAgLy8JamCwL58L7cDAL+8ILLAgL58PrtBgL68L7cDAL78ILLAgL68PrtBgL38L7cDAL88ILLAgL38PrtBgL48L7cDALx8ILLAgL48PrtBgL98L7cDALy8ILLAgL98PrtBgLL/cuYDgLL/ZuFAQLL/evxAwLL/d/zBgLL/a/gCQLL/f/MDALL/aPiDALL/fPODwL58NrjDALL/be9BQLL/YeqCAL68NrjDAKu3azCBwLE0pjGBwKexZ/fDwKfxZ/fDwKdxc/gDwKdxZ/fDwKWxZ/fDwKdxdPgDwKcxZ/fDwKVxZ/fDwKdxdfgDwKbxZ/fDwKdxd/gDwKdxdvgDwKixZ/fDwKdxePgDwKdxf/gDwKhxZ/fDwKdxefgDwKdxYPhDwKgxZ/fDwKdxevgDwK//YmtCwKEyY/EDQK/8ImUDQL6zdafBwK1q6OrAQLg/ZziAwKbwIDQCALWuLb5BwKR+5nnDFtJr662khzPFOwxEHl7015ozzHW" />
+</div>
+    
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+  
+    
+                
+      
+                
+ 
+            
+        <div id="container1">
+
+        	<!-- Starting Website Wrapper -->
+                <div id="wrapper">
+                		
+                        <!-- Starting Header of the website -->
+                        <div id="header" style="z-index: 1000; ">
+
+                                <!-- Website Logo Place -->
+                                <div id="logo-container" style="padding: 0px 0 10px 0;  display: inline-block; position: relative;">
+                                    <a href='/Default.aspx' class="logo" title="Strokovno združenje zasebnih zdravnikov in zobozdravnikov Slovenije"  style="float:left; ">
+                                        <img src="http://szzzzs.neolab.si/images/logo.png" alt="Strokovno združenje zasebnih zdravnikov in zobozdravnikov Slovenije" id="logo" style="margin: 0 !important;"/>
+                                    </a>
+                                    <img src="http://szzzzs.neolab.si/images/logo2.png" style="margin-left: 13px;" id="logo2"/>
+                                </div>
+                                
+                                <div class="social-nav" >
+                                    
+                                    
+    <span style="text-align:left; float:right; font-style: italic; font-family: Georgia;">Dober zdravnik potrebuje orlovske oči, ženske roke in levje srce.<br />
+        <span style="float:right; font-style: normal;">Češki pregovor</span>
+    </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                                      
+                                                                      
+                                    
+
+                                
+								
+                                
+                                <nav class="main-nav clearfix" >
+                                    
+
+<div class="menu-div">
+    
+            <ul>
+        
+	        <li class="item">
+		        <a href='/Domov' title='Domov'>
+                    Domov
+		        </a>
+
+                
+	        </li>
+        
+	        <li class="item">
+		        <a href='javascript: void(0);' title='Zdravniki in zobozdravniki'>
+                    Zdravniki in zobozdravniki
+		        </a>
+
+                
+                        <ul >
+                    
+                        <li>
+                            <a href='/Vrhunsko-znanje'>
+					            Vrhunsko znanje
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Kakovost-obravnave'>
+					            Kakovost obravnave
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Etika'>
+					            Etika
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Izobrazevanje'>
+					            Izobraževanje 
+				            </a>
+                        </li>
+                    
+                        </ul>
+                    
+	        </li>
+        
+	        <li class="item">
+		        <a href='javascript: void(0);' title='O Združenju'>
+                    O Združenju
+		        </a>
+
+                
+                        <ul >
+                    
+                        <li>
+                            <a href='/Poslanstvo'>
+					            Poslanstvo
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Vodstvo'>
+					            Vodstvo
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Osebna-izkaznica'>
+					            Osebna izkaznica
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Kontakt'>
+					            Kontakt
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Ugodnosti-za-clane'>
+					            Ugodnosti za člane
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Prijavnica'>
+					            Prijavnica
+				            </a>
+                        </li>
+                    
+                        </ul>
+                    
+	        </li>
+        
+	        <li class="item">
+		        <a href='javascript: void(0);' title='Aktualno'>
+                    Aktualno
+		        </a>
+
+                
+                        <ul >
+                    
+                        <li>
+                            <a href='/Novice'>
+					            Novice
+				            </a>
+                        </li>
+                    
+                        <li>
+                            <a href='/Financiranje-storitev'>
+					            Financiranje storitev
+				            </a>
+                        </li>
+                    
+                        </ul>
+                    
+	        </li>
+        
+	        <li class="item">
+		        <a href='/Povezave' title='Povezave'>
+                    Povezave
+		        </a>
+
+                
+	        </li>
+        
+            </ul>
+        
+
+                                 
+<div id="topsearch" >
+        <ul>
+            <li class="item"><a href="Prijava" id="ctl00_MainMenu1_Logon">Vstop za člane</a></li>
+            
+        </ul>
+    
+</div>
+
+</div>
+
+                                    
+
+  
+                                </nav>
+                        </div><!-- ending of header of the website -->
+                        
+
+                       
+                        <div id="container" style="z-index: 900;"" >
+                        		                
+                                
+    
+    
+
+    
+    
+    
+    
+
+
+                                <div  class="full-width"></div>
+                                
+                                
+                                <div class="official clearfix">
+                                 <div class="mainTable"><div class="Column1"><div class="Container1"><div id="ctl00_Ams1_ContentHeader_hd1" class="page-head" style="margin: 0 auto 0px !important; float:left; border-bottom: none !important; padding: 0px;">
+    
+</div>
+</div></div><div class="Column2"><div class="Container2">
+<style>
+    
+
+</style>
+
+<div id="content" class="full-width" >
+
+
+
+    <h1 style="margin-bottom:20px;">Poiščite zdravnika ali zobozdravnika</h1>
+    <div id="commentform">
+
+        <ul class="tabs-nav" style="width: 100%;">
+            
+            <li class="active" style="width: 33%">
+                <a href="#" >Izberi specializacijo</a>
+            </li>
+            <li class="" style="width: 34%">
+                <a href="#" >Izberi storitev</a>
+            </li>
+            <li class="" style="width: 33%">
+                <a href="#" >Poišči po imenu</a>
+            </li>
+        </ul>
+
+        <div class="tabs-container">
+            
+
+            <div class="tab-content" style="display: none;" >
+                
+                <span id="ctl00_Ams1_Homepage_Results" style="color:#FF8900; margin-left: 6px; display: block;">Izbrana specializacija: ortopedija<br></span>
+                <br />
+
+            </div>
+
+            <div class="tab-content" style="display: none;" > 
+                <div id="ctl00_Ams1_Homepage_PanServ">
+	
+
+
+                <h4>Zdravstvene</h4><table id="ctl00_Ams1_Homepage_cbcService_cbl1003" class="uploadTable search" cellpadding="4" border="0">
+		<tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_0" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$0" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_0">Abdominalna kirurgija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_15" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$15" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_15">Klinična genetika</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_30" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$30" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_30">Pediatrija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_1" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$1" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_1">Anatomska patologija in citopatologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_16" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$16" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_16">Klinična mikrobiologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_31" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$31" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_31">Plastična,rekonstr.in estetska kirurgija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_2" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$2" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_2">Anesteziologija in reanimatologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_17" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$17" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_17">Maksilofacialna kirurgija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_32" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$32" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_32">Pnevmologija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_3" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$3" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_3">Dermatovenerologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_18" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$18" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_18">Mamografija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_33" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$33" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_33">Psihiatrija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_4" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$4" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_4">Družinska medicina</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_19" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$19" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_19">Medicina dela, prometa in športa</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_34" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$34" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_34">Radiologija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_5" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$5" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_5">Epidemiologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_20" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$20" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_20">Nefrologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_35" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$35" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_35">Radioterapija in onkologija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_6" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$6" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_6">Fizikalna in rehabilitacijska medicina</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_21" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$21" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_21">Nevrokirurgija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_36" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$36" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_36">Sodna medicina</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_7" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$7" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_7">Gastroenterologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_22" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$22" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_22">Nevrologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_37" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$37" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_37">Splošna kirurgija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_8" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$8" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_8">Ginekologija in porodništvo</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_23" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$23" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_23">Nujna medicinska pomoč/urgentna medicina</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_38" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$38" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_38">Splošna medicina</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_9" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$9" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_9">Infektologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_24" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$24" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_24">Nuklearna medicina</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_39" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$39" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_39">Šolska medicina</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_10" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$10" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_10">Interna medicina</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_25" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$25" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_25">Oftalmologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_40" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$40" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_40">Torakalna kirurgija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_11" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$11" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_11">Internistična onkologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_26" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$26" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_26">Ortopedija, ortopedska kirurgija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_41" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$41" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_41">Transfuzijska medicina</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_12" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$12" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_12">Javno zdravje</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_27" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$27" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_27">Otorinolaringologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_42" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$42" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_42">Travmatologija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_13" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$13" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_13">Kardiologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_28" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$28" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_28">Otroška in mladostniška psihiatrija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_43" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$43" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_43">Ultrazvok</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_14" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$14" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_14">Kardiovaskularna kirurgija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_29" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$29" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_29">Pediatrična alergologija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1003_44" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1003$44" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1003_44">Urologija</label></td>
+		</tr>
+	</table><h4>Zobozdravstvene</h4><table id="ctl00_Ams1_Homepage_cbcService_cbl1004" class="uploadTable search" cellpadding="4" border="0">
+		<tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_0" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$0" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_0">Čeljustna in zobna ortopedija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_4" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$4" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_4">Otroško in preventivno zobozdravstvo</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_8" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$8" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_8">Zobne bolezni in endodontija</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_1" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$1" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_1">Implantologija (vsadki)</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_5" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$5" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_5">Paradontologija, ustne bolezni</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_9" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$9" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_9">Zobni rentgen (za zunanje paciente)</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_2" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$2" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_2">Maksilofacialna kirurgija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_6" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$6" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_6">Preventivno zobozdravstvo</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_10" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$10" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_10">Zobozdravstvo za mladino</label></td>
+		</tr><tr>
+			<td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_3" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$3" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_3">Oralna kirurgija</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_7" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$7" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_7">Stomatološka protetika</label></td><td><input id="ctl00_Ams1_Homepage_cbcService_cbl1004_11" type="checkbox" name="ctl00$Ams1$Homepage$cbcService$cbl1004$11" /><label for="ctl00_Ams1_Homepage_cbcService_cbl1004_11">Zobozdravstvo za odrasle</label></td>
+		</tr>
+	</table>
+
+                
+                
+</div>
+                <span id="ctl00_Ams1_Homepage_ResultsServ" style="color:#FF8900; margin-left: 6px; display: block;"><br></span>
+                <br />
+
+             </div>
+
+             <div class="tab-content" style="display: none;" > 
+                <div id="ctl00_Ams1_Homepage_PanName">
+	
+                Ime / Priimek: <input name="ctl00$Ams1$Homepage$TxtName" type="text" id="ctl00_Ams1_Homepage_TxtName" />
+                <br />
+                <input type="submit" name="ctl00$Ams1$Homepage$butName" value="Poišči" id="ctl00_Ams1_Homepage_butName" class="readmore" />
+                
+</div>
+                <span id="ctl00_Ams1_Homepage_ResultsName" style="color:#FF8900; margin-left: 6px; display: block;"></span>
+                <br />
+
+             </div>
+            <div id="ctl00_Ams1_Homepage_PanelRegions1" class="columns" style=" margin: -20px 0px 0px 0px !important; padding: 0px 10px 10px 10px;">
+	
+               <div id="ctl00_Ams1_Homepage_PanReg">
+		
+            <h3 id="ctl00_Ams1_Homepage_h3" style="margin-left: 6px; font-size: 17px; color:#005F8E; margin-left: 6px;">Izberi regijo</h3>
+            <table id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1" class="uploadTable search" cellpadding="4" border="0">
+			<tr>
+				<td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_0" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$0" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_0">Celjska regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_7" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$7" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_7">Posavska regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_14" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$14" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_14">Novomeška regija (OE Novo mesto)</label></td>
+			</tr><tr>
+				<td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_1" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$1" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_1">Gorenjska regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_8" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$8" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_8">Primorska regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_15" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$15" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_15">Obalno-kraška regija (OE Koper)</label></td>
+			</tr><tr>
+				<td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_2" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$2" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_2">Ljubljanska regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_9" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$9" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_9">Velenjsko-Koroška regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_16" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$16" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_16">Pomurska regija (OE Murska Sobota)</label></td>
+			</tr><tr>
+				<td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_3" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$3" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_3">Mariborska regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_10" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$10" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_10">Celjska regija (OE Celje)</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_17" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$17" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_17">Posavska regija (OE Krško)</label></td>
+			</tr><tr>
+				<td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_4" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$4" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_4">Novomeška regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_11" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$11" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_11">Gorenjska regija (OE Kranj)</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_18" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$18" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_18">Primorska regija (OE Nova Gorica)</label></td>
+			</tr><tr>
+				<td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_5" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$5" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_5">Obalno-kraška regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_12" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$12" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_12">Ljubljanska regija (OE Ljubljana)</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_19" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$19" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_19">Velenjsko-Koroška regija (OE Ravne na Koroškem)</label></td>
+			</tr><tr>
+				<td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_6" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$6" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_6">Pomurska regija</label></td><td><input id="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_13" type="checkbox" name="ctl00$Ams1$Homepage$cbcRegion$CheckBoxList1$13" /><label for="ctl00_Ams1_Homepage_cbcRegion_CheckBoxList1_13">Mariborska regija (OE Maribor)</label></td><td></td>
+			</tr>
+		</table>
+            <input type="submit" name="ctl00$Ams1$Homepage$butRegion" value="Poišči" id="ctl00_Ams1_Homepage_butRegion" class="readmore" />
+                   
+	</div>
+             
+            
+</div>
+           
+        </div>
+
+ 
+
+
+         
+        <div id="ctl00_Ams1_Homepage_PanelResults1">
+	
+        <br />
+        <h3 style="margin-bottom:10px;">Rezultati iskanja:</h3>
+        
+
+        
+        <div id="ctl00_Ams1_Homepage_resultsDiv1" class="columns" style="border:1px solid #eaeaea; margin: 10px 0px 0px 0px !important;">
+            
+                    
+                    <div class="columns" style="padding: 10px; border-bottom:1px solid #eaeaea;">
+                        <div class="one-half">
+                            <h3>
+                                <span style="color: #005F8E;"><strong>prof. dr. </strong></span><a id="ctl00_Ams1_Homepage_ListView1_ctrl0_h1" title="Vane ANTOLIČ" href="Clan/Vane-ANTOLIC-1192"><strong style="color: #005F8E;">Vane ANTOLIČ</strong></a><strong style="color: #005F8E;">, dr. med.</strong>
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl0_sp1" style="color: #005F8E;"><br />specialist ortopedije</span>
+                            </h3>
+                            <p style="color: #808080;"> 
+                                <strong>ORTHOPS d.o.o.</strong><br />
+                                Prešernova 19, 1000 LJUBLJANA<br />
+
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl0_s1">Telefon: 01/425 07 38<br /></span>
+                                
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl0_s2">Faks: 01/425 07 38<br /></span>
+                              
+                                
+                                <br />
+                                <a id="ctl00_Ams1_Homepage_ListView1_ctrl0_h2" title="Vane ANTOLIČ" class="readmore" href="Clan/Vane-ANTOLIC-1192">
+                                    Več...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="one-half">
+                            <input type="hidden" name="ctl00$Ams1$Homepage$ListView1$ctrl0$hfUser" id="ctl00_Ams1_Homepage_ListView1_ctrl0_hfUser" value="13233" />
+                            
+                        </div>
+                        
+                    </div>
+                    
+                
+                    <div class="columns" style="padding: 10px; border-bottom:1px solid #eaeaea;">
+                        <div class="one-half">
+                            <h3>
+                                <span style="color: #005F8E;"><strong>prim. </strong></span><a id="ctl00_Ams1_Homepage_ListView1_ctrl1_h1" title="Bogomir GORENŠEK" href="Clan/Bogomir-GORENSEK-1407"><strong style="color: #005F8E;">Bogomir GORENŠEK</strong></a><strong style="color: #005F8E;">, dr. med.</strong>
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl1_sp1" style="color: #005F8E;"><br />specialist ortopedije</span>
+                            </h3>
+                            <p style="color: #808080;"> 
+                                <strong>MD MEDICINA d.o.o.</strong><br />
+                                Hacquetova 9, 1000 LJUBLJANA<br />
+
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl1_s1">Telefon: 01 430 90 10<br /></span>
+                                
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl1_s2">Faks: 01 430 90 12<br /></span>
+                              
+                                
+                                <br />
+                                <a id="ctl00_Ams1_Homepage_ListView1_ctrl1_h2" title="Bogomir GORENŠEK" class="readmore" href="Clan/Bogomir-GORENSEK-1407">
+                                    Več...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="one-half">
+                            <input type="hidden" name="ctl00$Ams1$Homepage$ListView1$ctrl1$hfUser" id="ctl00_Ams1_Homepage_ListView1_ctrl1_hfUser" value="17196" />
+                            
+                        </div>
+                        
+                    </div>
+                    
+                
+                    <div class="columns" style="padding: 10px; border-bottom:1px solid #eaeaea;">
+                        <div class="one-half">
+                            <h3>
+                                <span style="color: #005F8E;"><strong>prim. </strong></span><a id="ctl00_Ams1_Homepage_ListView1_ctrl2_h1" title="Miro GORENŠEK" href="Clan/Miro-GORENSEK-1407"><strong style="color: #005F8E;">Miro GORENŠEK</strong></a><strong style="color: #005F8E;">, dr. med.</strong>
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl2_sp1" style="color: #005F8E;"><br />specialist ortopedije</span>
+                            </h3>
+                            <p style="color: #808080;"> 
+                                <strong>MD MEDICINA d.o.o.</strong><br />
+                                Hacquetova 9, 1000 LJUBLJANA<br />
+
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl2_s1">Telefon: 01 430 90 10<br /></span>
+                                
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl2_s2">Faks: 01 430 90 12<br /></span>
+                              
+                                
+                                <br />
+                                <a id="ctl00_Ams1_Homepage_ListView1_ctrl2_h2" title="Miro GORENŠEK" class="readmore" href="Clan/Miro-GORENSEK-1407">
+                                    Več...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="one-half">
+                            <input type="hidden" name="ctl00$Ams1$Homepage$ListView1$ctrl2$hfUser" id="ctl00_Ams1_Homepage_ListView1_ctrl2_hfUser" value="16174" />
+                            
+                        </div>
+                        
+                    </div>
+                    
+                
+                    <div class="columns" style="padding: 10px; border-bottom:1px solid #eaeaea;">
+                        <div class="one-half">
+                            <h3>
+                                <span style="color: #005F8E;"><strong></strong></span><a id="ctl00_Ams1_Homepage_ListView1_ctrl3_h1" title="Saša KOSOVINC" href="Clan/Sasa-KOSOVINC-1310"><strong style="color: #005F8E;">Saša KOSOVINC</strong></a><strong style="color: #005F8E;">, dr. med.</strong>
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl3_sp1" style="color: #005F8E;"><br />specialist ortopedije</span>
+                            </h3>
+                            <p style="color: #808080;"> 
+                                <strong>ORTOPEDSKA ORDINACIJA DR. KOSOVINC SAŠA</strong><br />
+                                Korytkova ulica 29, 1000 LJUBLJANA<br />
+
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl3_s1">Telefon: 01 438 58 75<br /></span>
+                                
+                                
+                              
+                                
+                                <br />
+                                <a id="ctl00_Ams1_Homepage_ListView1_ctrl3_h2" title="Saša KOSOVINC" class="readmore" href="Clan/Sasa-KOSOVINC-1310">
+                                    Več...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="one-half">
+                            <input type="hidden" name="ctl00$Ams1$Homepage$ListView1$ctrl3$hfUser" id="ctl00_Ams1_Homepage_ListView1_ctrl3_hfUser" value="13643" />
+                            
+                                    <table class="uploadTable" cellpadding="0" cellspacing="0" border="0" width="auto">
+                                        <tr>
+                                            <th class="bLine rr3" style="width: 40%;">
+                                                Storitve
+                                            </th>
+                                            <th class="tCenter bLine rr3" >
+                                                <div>Samoplačniško</div>
+                                            </th>
+                                            <th class="tCenter bLine" >
+                                                <div>Zavarovalnica</div>
+                                            </th>
+                                        </tr>
+                                
+                                    <tr>
+                                        <td class="rr2 rr3" >
+                                            Ortopedija, ortopedska kirurgija
+                                        </td>
+                                        <td class="tCenter rr2 rr3" >
+                                            <img src="/images/icon-box-success.png" id="ctl00_Ams1_Homepage_ListView1_ctrl3_RepServices1_ctl01_m1" />
+                                        </td>
+                                        <td class="tCenter rr2" >
+                                            <img src="/images/icon-box-success.png" id="ctl00_Ams1_Homepage_ListView1_ctrl3_RepServices1_ctl01_Img1" />
+                                        </td>
+                                    </tr>
+                                
+                                    </table>
+                                
+                        </div>
+                        
+                    </div>
+                    
+                
+                    <div class="columns" style="padding: 10px; border-bottom:1px solid #eaeaea;">
+                        <div class="one-half">
+                            <h3>
+                                <span style="color: #005F8E;"><strong></strong></span><a id="ctl00_Ams1_Homepage_ListView1_ctrl4_h1" title="Andreja PEHNEC" href="Clan/Andreja-PEHNEC-957"><strong style="color: #005F8E;">Andreja PEHNEC</strong></a><strong style="color: #005F8E;">, dr. med.</strong>
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl4_sp1" style="color: #005F8E;"><br />specialist ortopedije</span>
+                            </h3>
+                            <p style="color: #808080;"> 
+                                <strong>ZASEBNA ORTOPEDSKA AMBULANTA ANDREJA PEHNEC DR. MED. SPEC. ORTOPED</strong><br />
+                                Koroška cesta 172, 2000 MARIBOR<br />
+
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl4_s1">Telefon: 02/250 23 10<br /></span>
+                                
+                                
+                              
+                                
+                                <br />
+                                <a id="ctl00_Ams1_Homepage_ListView1_ctrl4_h2" title="Andreja PEHNEC" class="readmore" href="Clan/Andreja-PEHNEC-957">
+                                    Več...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="one-half">
+                            <input type="hidden" name="ctl00$Ams1$Homepage$ListView1$ctrl4$hfUser" id="ctl00_Ams1_Homepage_ListView1_ctrl4_hfUser" value="13665" />
+                            
+                        </div>
+                        
+                    </div>
+                    
+                
+                    <div class="columns" style="padding: 10px; border-bottom:1px solid #eaeaea;">
+                        <div class="one-half">
+                            <h3>
+                                <span style="color: #005F8E;"><strong></strong></span><a id="ctl00_Ams1_Homepage_ListView1_ctrl5_h1" title="Mladen PRETTNER" href="Clan/Mladen-PRETTNER-589"><strong style="color: #005F8E;">Mladen PRETTNER</strong></a><strong style="color: #005F8E;">, dr. med.</strong>
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl5_sp1" style="color: #005F8E;"><br />specialist ortopedije</span>
+                            </h3>
+                            <p style="color: #808080;"> 
+                                <strong>PRETTNER MLADEN - ZASEBNA AMBULANTA ZA ORTOPEDIJO IN ŠPORTNE POŠKODBE</strong><br />
+                                Cvetkova ulica 10, 9000 MURSKA SOBOTA<br />
+
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl5_s1">Telefon: 02/536 10 60<br /></span>
+                                
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl5_s2">Faks: 02/536 10 63<br /></span>
+                              
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl5_s4">Spletna stran: <a target="_blank" href='http://www.ortopedija-prettner.si' title='www.ortopedija-prettner.si' style="color: #808080;">www.ortopedija-prettner.si</a><br /></span>
+                                <br />
+                                <a id="ctl00_Ams1_Homepage_ListView1_ctrl5_h2" title="Mladen PRETTNER" class="readmore" href="Clan/Mladen-PRETTNER-589">
+                                    Več...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="one-half">
+                            <input type="hidden" name="ctl00$Ams1$Homepage$ListView1$ctrl5$hfUser" id="ctl00_Ams1_Homepage_ListView1_ctrl5_hfUser" value="13702" />
+                            
+                        </div>
+                        
+                    </div>
+                    
+                
+                    <div class="columns" style="padding: 10px; border-bottom:1px solid #eaeaea;">
+                        <div class="one-half">
+                            <h3>
+                                <span style="color: #005F8E;"><strong>prim. </strong></span><a id="ctl00_Ams1_Homepage_ListView1_ctrl6_h1" title="Rasto STOK" href="Clan/Rasto-STOK-1198"><strong style="color: #005F8E;">Rasto STOK</strong></a><strong style="color: #005F8E;">, dr. med.</strong>
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl6_sp1" style="color: #005F8E;"><br />specialist ortopedije</span>
+                            </h3>
+                            <p style="color: #808080;"> 
+                                <strong>ULTRAMEDICA d.o.o.</strong><br />
+                                Vošnjakova 1/11.nad., 1000 LJUBLJANA<br />
+
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl6_s1">Telefon: 01/433 20 04<br /></span>
+                                
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl6_s2">Faks: 01/433 20 05<br /></span>
+                              
+                                
+                                <br />
+                                <a id="ctl00_Ams1_Homepage_ListView1_ctrl6_h2" title="Rasto STOK" class="readmore" href="Clan/Rasto-STOK-1198">
+                                    Več...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="one-half">
+                            <input type="hidden" name="ctl00$Ams1$Homepage$ListView1$ctrl6$hfUser" id="ctl00_Ams1_Homepage_ListView1_ctrl6_hfUser" value="13877" />
+                            
+                        </div>
+                        
+                    </div>
+                    
+                
+                    <div class="columns" style="padding: 10px; border-bottom:1px solid #eaeaea;">
+                        <div class="one-half">
+                            <h3>
+                                <span style="color: #005F8E;"><strong></strong></span><a id="ctl00_Ams1_Homepage_ListView1_ctrl7_h1" title="Sašo TONEJC" href="Clan/Saso-TONEJC-475"><strong style="color: #005F8E;">Sašo TONEJC</strong></a><strong style="color: #005F8E;">, dr. med.</strong>
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl7_sp1" style="color: #005F8E;"><br />specialist ortopedije</span>
+                            </h3>
+                            <p style="color: #808080;"> 
+                                <strong>TONEJC SAŠO - SPECIALIST ORTOPEDIJE</strong><br />
+                                Partizanska cesta 59, 2000 MARIBOR<br />
+
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl7_s1">Telefon: 02/250 04 36<br /></span>
+                                
+                                <span id="ctl00_Ams1_Homepage_ListView1_ctrl7_s2">Faks: 02/250 04 37<br /></span>
+                              
+                                
+                                <br />
+                                <a id="ctl00_Ams1_Homepage_ListView1_ctrl7_h2" title="Sašo TONEJC" class="readmore" href="Clan/Saso-TONEJC-475">
+                                    Več...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="one-half">
+                            <input type="hidden" name="ctl00$Ams1$Homepage$ListView1$ctrl7$hfUser" id="ctl00_Ams1_Homepage_ListView1_ctrl7_hfUser" value="13859" />
+                            
+                        </div>
+                        
+                    </div>
+                    
+                
+                
+        </div>
+
+        <div class="columns">
+            <div id="pagination" style="height: 50px;">
+                
+                <span id="ctl00_Ams1_Homepage_DataPager1"><span class="readmore current">1</span>&nbsp;</span>
+                </div>
+            </div>
+
+        
+</div>
+
+
+     </div>
+
+
+
+</div>
+
+<script>
+    function tab(nn) {
+        var $x = $('.tabs-nav').children('li').eq(nn);
+        $x.siblings().removeClass('active').end()
+             .addClass('active');
+        var idx = $x.parent().children().index($x);
+        $x.parent().next().children('.tab-content').stop(true, true).hide().eq(idx).fadeIn();
+        //e.preventDefault();
+
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div><div class="Column3"><div class="Container3">
+
+ 
+<div id="sidebar"  >
+
+
+
+    <div class="widget"  >
+        <div class="appointment" style="margin-bottom: 20px;display: none; ">
+            <div class="header">
+                        <h3 class="number"><span style="font-size: 20px;">SZZZZS</span><br />Dunajska 162, Ljubljana<br />
+                        t: 01 433 85 35<br />
+                        f: 01 439 76 00<br />
+                        e: <a href="mailto:info@zdravniki-zobozdravniki.si" style="color: white; font-size: 17px;">info@zdravniki-zobozdravniki.si</a><br /></h3>
+            </div>
+            <div ><br />
+                
+                    <div id="ctl00_Ams1_Sidebar_P1">
+	
+                    <p align="center" style="margin: 0px;">
+                    <span class="text">Omejeno območje za člane<br /><br /></span><a href="Prijava" value="Vstop za člane" class="readmore" >Vstop za člane</a>
+                    </p>
+                    
+</div>
+                    
+                  
+                <br />
+
+            </div>
+
+        </div>
+        <div align="center" style="display: none;" >
+            <h2 style="line-height: 40px;" >Sponzor</h2>
+                                            
+            <img src='/Upload/banner.jpg' width="250" class="sponsor" />							
+        </div>                             
+    </div>
+</div>            </div></div><div style="clear:both;"></div></div>
+
+                                                                               
+                                                                       
+                                </div> <!-- end of official -->
+                                
+
+                            
+								
+								
+                        </div><!-- end of container -->
+                        
+                                                  		                                
+								
+
+
+                        
+                </div><!-- End of Wrapper Div -->
+
+                                
+				<div id="footer-bottom-wrapper">
+					<div id="footer-bottom">
+							<p class="copyrights" style="float: left">© SZZZZS 2014</p>
+								<p class="copyrights" style="float: right">Poganja: <a href="http://neolab.si" target="_blank" title="Neolab, razvoj informacijskih rešitev">Neolab</a></p>
+		            </div><!-- footer-bottom -->
+				</div>
+        </div>
+     
+        
+
+    <div id="ctl00_UpdateProgress2" style="display:none;">
+	
+            <div class="ajax_loader">
+                <img id="ctl00_Image4" src="Images/ajax-loader-big.gif" alt="Loading..." style="height:32px;width:32px;border-width:0px;" />
+            </div>
+        
+</div>
+    
+
+    <script type="text/javascript">
+
+        if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-44651070-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        }
+
+    </script>
+
+
+    
+
+
+        <a href="#top" id="scroll-top" style="display: none;"></a>
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.cookies_popup').colorbox({ href: "/Piskotki.html", width: "800px", height: "80%" });
+        });
+
+    </script>
+    
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":null,"displayAfter":0,"dynamicLayout":true}, null, null, $get("ctl00_UpdateProgress2"));
+});
+//]]>
+</script>
+</form>
+    
+</body>
+</html>

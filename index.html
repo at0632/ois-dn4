@@ -8,95 +8,130 @@
 	    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 	    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	    <script type="text/javascript" src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/master/src/js/bootstrap-datetimepicker.js"></script>
-	    <script type="text/javascript" src="scripts/ru.js"></script>
-	    <script type="text/javascript" src="scripts/moment.js"></script>
-	    <link rel="stylesheet" type="text/css" media="screen" href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
+		
+		
+		<link href="jquery.datetimepicker.css" rel="stylesheet" />
+		<script src="jquery.datetimepicker.js"></script>
 	    <script src="demo.js"></script>
-	    <style>
-	  		body {padding: 10px;}
-	  		.btn {margin-top: 10px;}
-	  		.obvestilo {margin-left:10px;}
-	  	</style>
+		<style>
+			body {padding: 20px;}
+			
+		</style>
+		
+		
+		
 	</head>
 	<body>
-		<div class="page-header"><h2>Vnos in poizvedovanje po EHR podatkih <small>EhrScape platforma</small></h2></div>
-		<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-6">
+		<div class="page-header"><h2>Vnos in poizvedovanje po EHR podatkih <small>EhrScape platforma</small></h2></div>	
+		<div id="1" class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-lg-8 col-md-8 col-sm-8"><b>Kreiraj EHR zapis</b> za novega bolnika</div>
+							<button type="button" class="btn btn-primary btn-xs" 
+							onclick="novo()">Nov vnos</button>
+							<span id="kreirajSporocilo"></span>
 							<div class="col-lg-4 col-md-4 col-sm-4">
 								<select class="form-control input-sm" id="preberiPredlogoBolnika">
 									<option value=""></option>
-									<option value="Janez,Novak,MALE,1938-10-30T14:58">Pujsa Pepa</option>
-									<option value="sa,Novak,1938-10-30T14:58">Pujsa Pepa</option>
-									<option value=",Pepa,1938-10-30T14:58">Pujsa Pepa</option>
+									<option value="9ece44b4-ba1f-457d-8dad-ff23d2a91a81">Janez Novak</option>
+									<option value="941213a9-02fe-46b2-84fa-ce7c807b75cb">Marija Kranjc</option>
+									<option value="a459f4a2-ca92-47ce-bf67-a831f47be902">Jan Novak</option>
 								</select>
 							</div>
+							
 						</div>
 					</div>
-					<div class="panel-body">
+					<<div id="vnos1" class="panel-body" hidden>
 						<span class="label label-default">Ime</span><input id="kreirajIme" type="text" class="form-control input-mini" placeholder="Osama">
 						<span class="label label-default">Priimek</span><input id="kreirajPriimek" type="text" class="form-control" placeholder="Bin Laden">
-						<span class="label label-default">Spol</span><form><input type="radio" name="sex" value="MALE" checked>Moški<input type="radio" name="sex" value="FEMALE">Ženski</form>
-						<span class="label label-default">Datum rojstva</span><input id="kreirajDatumRojstva" type="text" class="form-control" placeholder="1957-03-10T09:08">
+						<span class="label label-default">Spol</span><form  class="form-control"><input id="kreirajSpol" type="radio" name="sex" value="MALE">Moški<input id="kreirajSpol" type="radio" name="sex" value="FEMALE">Ženski</form>
+						<span class="label label-default">Datum rojstva</span>
+						<form  class="form-control">
+						<input  id="datetimepicker" type="text"  >
+						</form>
+						<script>
+							$(function() {
+								$("#datetimepicker").datetimepicker({
+									format:'Y-m-d',
+									timepicker:false
+								});
+							});
+						</script>
 						<span class="label label-default">Kraj bivanja</span><input id="kreirajKraj" type="text" class="form-control" placeholder="Ljubljana">
-					<div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                	</div>
-                    <script type="text/javascript">
-            		$(function () {
-                		$('#datetimepicker1').datetimepicker();
-            		});
-        			</script>
-                </div>
 						<button type="button" class="btn btn-primary btn-xs" onclick="kreirajEHRzaBolnika()">Dodaj osnovne podatke o bolniku</button><span id="kreirajSporocilo"></span>
 				  	</div>
 				</div>
+				<button type="button" class="btn btn-success btn-lg" 
+							onclick="nadaljuj()">Nadaljuj</button>
 			</div>
-			<!--<div class="col-lg-6 col-md-6 col-sm-6">
+			
+		</div>
+		<div id="2" class="row" hidden>
+			<div class="col-lg-12 col-md-12 col-sm-12" >
+				
+				<span id="sporocilo"></span>
+					
+			</div>
+		</div>
+		<div id="3" class="row" hidden>
+			<div id="test" class="col-lg-4 col-md-4 col-sm-4">
+				
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-8"><b>Preberi EHR zapis</b> obstoječega bolnika</div>
-							<div class="col-lg-4 col-md-4 col-sm-4"><select class="form-control input-sm" id="preberiObstojeciEHR"><option value=""></option><option value="254f791d-2e7c-49d9-b646-376f62d6ead5">Dejan Lavbič</option><option value="d564c6a3-5a43-4fcc-bfa7-9ac76e9673bd">Pujsa Pepa</option><option value="b931580f-2b05-488b-985b-8d9ffb08ad02">Ata Smrk</option></select></div>
+							<div>Prikaz indeksa telesne mase</div>
 						</div>
 					</div>
-					<div class="panel-body">
-						<span class="label label-default">EHR ID</span><input id="preberiEHRid" type="text" class="form-control input-mini" placeholder="7b661e12-3a98-21ad-c29e-2dc9f5a3d885">
-						<button type="button" class="btn btn-primary btn-xs" onclick="preberiEHRodBolnika()">Preberi osnovne podatke o bolniku</button><span id="preberiSporocilo"></span>
-				  	</div>
-				</div>
-			</div>-->
-		</div>
-		<!--<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-8"><b>Vnos</b> meritve <b>vitalnih znakov</b> bolnika</div>
-							<div class="col-lg-4 col-md-4 col-sm-4"><select class="form-control input-sm" id="preberiObstojeciVitalniZnak"><option value=""></option><option value="b931580f-2b05-488b-985b-8d9ffb08ad02|2014-11-21T11:40Z|185|80.0|36.50|118|92|98|medicinska sestra Smrketa">Ata Smrk</option></select></div>
-						</div>
-					</div>				
-					<div class="panel-body">
-						<span class="label label-default">EHR ID</span><input id="dodajVitalnoEHR" type="text" class="form-control input-mini" placeholder="7b661e12-3a98-21ad-c29e-2dc9f5a3d885">
-						<span class="label label-default">Datum in ura</span><input id="dodajVitalnoDatumInUra" type="text" class="form-control input-mini" placeholder="2014-11-21T11:40Z">
+						<button type="button" class="btn btn-primary btn-xs" 
+							onclick="nova()">Nov vnos</button>
+							<button type="button" class="btn btn-primary btn-xs" 
+							onclick="generator()">Generiraj</button>
+					<svg id="visualisation" width="300" height="300"></svg>
+					<div id="vnos2" class="panel-body" hidden>
+						<span class="label label-default">Datum in ura</span>
+						<input id="dodajVitalnoDatumInUra" type="text" 
+						class="form-control input-mini" placeholder="2014-11-21T11:40Z">
 						<span class="label label-default">Telesna višina</span><div class="input-group"><input id="dodajVitalnoTelesnaVisina" type="text" class="form-control input-mini" placeholder="185"><span class="input-group-addon">cm</span></div>
 						<span class="label label-default">Telesna teža</span><div class="input-group"><input id="dodajVitalnoTelesnaTeza" type="text" class="form-control input-mini" placeholder="80.00"><span class="input-group-addon">kg</span></div>
-						<span class="label label-default">Telesna temperatura</span><div class="input-group"><input id="dodajVitalnoTelesnaTemperatura" type="text" class="form-control input-mini" placeholder="36.50"><span class="input-group-addon">°C</span></div>
-						<span class="label label-default">Sistolični krvni tlak</span><div class="input-group"><input id="dodajVitalnoKrvniTlakSistolicni" type="text" class="form-control input-mini" placeholder="118"><span class="input-group-addon">mm Hg</span></div>
-						<span class="label label-default">Diastolični krvni tlak</span><div class="input-group"><input id="dodajVitalnoKrvniTlakDiastolicni" type="text" class="form-control input-mini" placeholder="92"><span class="input-group-addon">mm Hg</span></div>
-						<span class="label label-default">Nasičenost krvi s kisikom</span><div class="input-group"><input id="dodajVitalnoNasicenostKrviSKisikom" type="text" class="form-control input-mini" placeholder="98"><span class="input-group-addon">%</span></div>
-						<span class="label label-default">Merilec</span><input id="dodajVitalnoMerilec" type="text" class="form-control input-mini" placeholder="medicinska sestra Hrastova Micka">
 						<button type="button" class="btn btn-primary btn-xs" onclick="dodajMeritveVitalnihZnakov()">Dodaj meritve vitalnih znakov</button><span id="dodajMeritveVitalnihZnakovSporocilo"></span>
 				  	</div>
 				</div>
+			</div>
+			<div onclick="temp()" class="col-lg-4 col-md-4 col-sm-4">
+				
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="row">
+							<div>Prikaz telesne temperature</div>
+						</div>
+					</div>
+						<button type="button" class="btn btn-primary btn-xs" 
+							onclick="preberiTemp()">Nov vnos</button>
+							<button type="button" class="btn btn-primary btn-xs" 
+							onclick="generator()">Generiraj</button>
+					<svg id="vis2"  width="300" height="300"></svg>
+					
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4">
+				
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="row">
+							<div>Prikaz krvnega tlaka in srčnega utripa</div>
+						</div>
+					</div>
+						<button type="button" class="btn btn-primary btn-xs" 
+							onclick="nova()">Nov vnos</button>
+							<button type="button" class="btn btn-primary btn-xs" 
+							onclick="generator()">Generiraj</button>
+					<svg id="vis3"></svg>
+					
+				</div>
 			</div>	
-			<div class="col-lg-6 col-md-6 col-sm-6">
+			<!--<div class="col-lg-6 col-md-6 col-sm-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
@@ -109,9 +144,117 @@
 						<span class="label label-default">EHR ID</span><input id="meritveVitalnihZnakovEHRid" type="text" class="form-control input-mini" placeholder="7b661e12-3a98-21ad-c29e-2dc9f5a3d885">
 						<button type="button" class="btn btn-primary btn-xs" onclick="preberiMeritveVitalnihZnakov('telesna temperatura')">Preberi meritve vitalnih znakov</button><span id="preberiMeritveVitalnihZnakovSporocilo"></span>
 						<div id="rezultatMeritveVitalnihZnakov"></div>
+						<button type="button" class="btn btn-primary btn-xs" onclick="preberi1()">Preberi1</button><span id="preberiMeritveVitalnihZnakovSporocilo"></span>
+						<div id="rezultat1"></div>
 				  	</div>
 				</div>			
+			</div>-->
+			
+		</div>
+		<div id="4" class="row" hidden>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div id="rez">
+						
+							</div>
+							<button type="button" 
+							class="btn btn-secondary btn-xs" 
+							onclick="odpri1()">Naroči se</button>
+							
+						
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div id="rez1">
+						
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div id="rez2">
+						
+							</div>
+						</div>
+					</div>
+				</div>
+				
 			</div>
-		</div>-->
+		<div id="5" class="row"hidden>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<table id="ortopedija" hidden>
+						  <tr>
+							<td>prof. dr. Vane ANTOLIČ, dr. med.</td>
+							<td>ORTHOPS d.o.o.</td> 
+							<td>50</td>
+							<td>LJUBLJANA</td>
+						  </tr>
+						  <tr>
+							<td>prim. Bogomir GORENŠEK, dr. med. </td>
+							<td>MD MEDICINA d.o.o.</td> 
+							<td>94</td>
+							<td>LJUBLJANA</td>
+						  </tr>
+						  <tr>
+							<td>Andreja PEHNEC, dr. med. </td>
+							<td>ZASEBNA ORTOPEDSKA AMBULANTA ANDREJA PEHNEC</td> 
+							<td>100</td>
+							<td>MARIBOR</td>
+						  </tr>
+						</table>
+						
+						<table id="pediatrija" hidden>
+						  <tr>
+							<td>Metka BEM, dr. med. </td>
+							<td>ZDRAVJE METKA IN BRANIMIR, D.O.O..</td> 
+							<td>260</td>
+							<td>KOPER/CAPODISTRIA</td>
+						  </tr>
+						  <tr>
+							<td>Martina BERNOT, dr. med.  </td>
+							<td>MARTINA BERNOT - ZASEBNA AMBULANTA ZA OTROKE IN MLADINO</td> 
+							<td>55</td>
+							<td>KAMNIK</td>
+						  </tr>
+						  <tr>
+							<td>Gregor CASERMAN, dr. med. </td>
+							<td>CASERMAN, ZASEBNA PEDIATRIČNA AMBULANTA, D.O.O.</td> 
+							<td>100</td>
+							<td>VRHNIKA</td>
+						  </tr>
+						</table>
+					
+						<table id="kardiologija" hidden>
+						  <tr>
+							<td>prim. Risto ANGELSKI, dr. med. </td>
+							<td>CARDIAL d.o.o.</td> 
+							<td>300</td>
+							<td>LJUBLJANA</td>
+						  </tr>
+						  <tr>
+							<td>asist. Franci CESAR, dr. med. </td>
+							<td>VASACOR, DRUŽBA ZA STORITVE V ZDRAVSTVU, D.O.O.</td> 
+							<td>55</td>
+							<td>TOPOLŠICA</td>
+						  </tr>
+						  <tr>
+							<td>prim. asist. Tatjana GOLOB GULIČ, dr. med. </td>
+							<td>SRCE IN OŽILJE D.O.O.</td> 
+							<td>100</td>
+							<td>MARIBOR</td>
+						  </tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
