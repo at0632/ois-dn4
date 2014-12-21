@@ -147,6 +147,8 @@ function dodajMeritveVitalnihZnakov() {
 		});
 	}
 	$("#vnos2").hide();
+	$("#vnos3").hide();
+	$("#vnos4").hide();
 }
 
 
@@ -307,6 +309,12 @@ function novo(){
 function nova(){
 	$("#vnos2").show();
 }
+function nova1(){
+	$("#vnos3").show();
+}
+function nova2(){
+	$("#vnos4").show();
+}
 function nadaljuj(){
 	if(trenutniEHR==''){
 	trenutniEHR=$("#preberiPredlogoBolnika").find('option:selected').val();
@@ -314,6 +322,8 @@ function nadaljuj(){
 	if(trenutniEHR){
 		preberiEHRodBolnika();
 		itm();
+		temp();
+		stk();
 		$("#1").hide();
 		$("#3").show();
 		$("#4").show();
@@ -383,15 +393,15 @@ function itm(){
 									
 									$("#rez").append("<span>ITM kaže na podhranjenost</span>");
 								else if(itm<25)
-									$("#rez").append("<span>ITM kaže na podhranjenost</span>");
+									$("#rez").append("<span>ITM kaže na normalno</span>");
 								else if(itm<30)
-									$("#rez").append("<span>ITM kaže na podhranjenost</span>");
+									$("#rez").append("<span>ITM kaže na povišana</span>");
 								else if(itm<35)
-									$("#rez").text("ITM kaže na podhranjenost");
+									$("#rez").text("ITM kaže na debelost 1");
 								else if(itm<40)
-									$("#rez").text("ITM kaže na podhranjenost");
+									$("#rez").text("ITM kaže na debelost 2");
 								else
-									$("#rez").text("ITM kaže na podhranjenost");
+									$("#rez").text("ITM kaže na debelost 3");
 							var a=10;
 							for (var i in res) {
 								if(i<10){
@@ -440,6 +450,18 @@ function odpri1(){
 	$("#pediatrija").hide();
 	$("#kardiologija").hide();
 }
+function odpri2(){
+	$("#5").show();
+	$("#ortopedija").hide();
+	$("#pediatrija").show();
+	$("#kardiologija").hide();
+}
+function odpri3(){
+	$("#5").show();
+	$("#ortopedija").hide();
+	$("#pediatrija").hide();
+	$("#kardiologija").show();
+}
 var jsonArr2 = [];
 function temp(){
 	var ehrId=trenutniEHR;
@@ -457,16 +479,21 @@ function temp(){
 						$("#rez1").append("<span>Temperatura je normalna.</span>");
 					}
 					
+					console.log(res[0].temperature);
+					console.log(res[1].temperature);
+					var a=5;
 					for (var i in res) {
-						if(res[i].time>Date()+5){
+						if(i<10){
 						
 						jsonArr2.push({
 						x: a,
 						y: res[i].temperature
 						});
+						
+						a=a-1;
 						}
-					
 					}
+					console.log(jsonArr2);
 					
 					
 					
@@ -485,62 +512,64 @@ function temp(){
 
 
 }
+var jsonArr3 = [];
+function stk(){
+var ehrId=trenutniEHR;
+	
+	if (ehrId){
+		$.ajax({
+			url: baseUrl + "/view/" + ehrId + "/" + "blood_pressure",
+		    type: 'GET',
+		    headers: {"Ehr-Session": sessionId},
+		    success: function (res) {
+		    	if (res.length > 0) {
+					
+					var skt = res[0].systolic;
+					if(skt<110)
+						$("#rez2").append("<span>Krvni tlak je prenizek</span>");
+					else if(skt<120)
+						$("#rez2").append("<span>Krvni tlak je optimalen</span>");
+					else if(skt<130)
+						$("#rez2").append("<span>Krvni tlak je normalen</span>");
+					else if(skt<139)
+						$("#rez2").append("<span>Krvni tlak je visoko normalen</span>");
+					else
+						$("#rez2").append("<span>Krvni tlak je previsok</span>");
+					
+					var a=0;
+					for (var i in res) {
+					console.log(res[i].systolic);
+						if(i<10){
+						
+						jsonArr3.push({
+						x: a,
+						y: res[i].systolic
+						});
+						
+						a=a+1;
+						}
+					}
+					
+					
+					
+					
+					
+					izrisi3();
+					
+				} else {
+					   $("#rez3").append("<span>Krvni tlak ni na voljo</span>"); 		
+				}
+			},
+			error: function() {
+			console.log(JSON.parse(err.responseText).userMessage);
+			}
+		});	
+	}
 
-function preveri(){
-	
-/*
-
-ITM (kg/m2	Klasifikacija	Tveganje za bolezensko stanje
-< 18.5	podhranjenost	majhno (povečano tveganje za druge klinične težave)
-18.5–24.9	normalna prehranjenost	povprečno
-= 25.0	prekomerna prehranjenost	 
-25.0–29.9	pred-debelost	povečano
-30.0–34.9	debelost – 1. st	zmerno povečano
-35.0–39.9	debelost – 2. st	močno povečano
-= 40	debelost – 3. st	zelo močno povečano
-*/
-	
-	/*if(skt<110)
-		//prenizek
-	else if(skt<120)
-		//optimalen
-	else if(skt<130)
-		//normalen
-	else if(skt<139)
-		//visoko normalen
-	else
-		//nujen pregled (arterijska hipertenzija)
-	
-	if(dkt<60)
-		//prenizek
-	else if(dkt<80)
-		//optimalen
-	else if(dkt<85)
-		//normalen
-	else if(dkt<89)
-		//visoko normalen
-	else
-		//nujen pregled (arterijska hipertenzija)
-	
-	if(59<puls<100){
-	
-	}else
-		
-	
-	var itm = teza/vis*vis;
-	if(itm<18.5)
-		//pohranjenost
-	else if(itm<25)
-	
-	else if(itm<30)
-	else if(itm<35)
-	else if(itm<40)
-	else*/
 }
-
 function izrisi1(){
 
-console.log(jsonArr);
+//console.log(jsonArr);
 
 var lineData = [{x: 1,y: 100}, 
 {x: 20,y: 120}, 
@@ -549,7 +578,7 @@ var lineData = [{x: 1,y: 100},
 {x: 80,y: 80}, 
 {x: 100,y: 170}];
 
-console.log(lineData);
+
 
 var vis = d3.select('#visualisation'),
      MARGINS = {
@@ -613,7 +642,7 @@ vis.append('svg:g')
 
 
 function izrisi2(){
-
+console.log(jsonArr2);
 if(jsonArr2.length>0){
 var vis = d3.select('#vis2'),
      MARGINS = {
@@ -622,16 +651,16 @@ var vis = d3.select('#vis2'),
       bottom: 20,
       left: 40
     },
-	WIDTH = $("#test2").width()-30,
+	WIDTH =$("#test2").width()-30,
 	
     HEIGHT = 300,
    
     xRange = d3.scale.linear()
 	.range([MARGINS.left, WIDTH - MARGINS.right])
 	.domain([d3.min(jsonArr2, function(d) {
-      return d.x;
+      return 0;
     }), d3.max(jsonArr2, function(d) {
-      return d.x;
+      return 10;
     })]),
     yRange = d3.scale.linear()
 	.range([HEIGHT - MARGINS.top, MARGINS.bottom])
@@ -669,6 +698,74 @@ vis.append('svg:g')
   .interpolate('linear');
   vis.append('svg:path')
   .attr('d', lineFunc(jsonArr2))
+  .attr('stroke', 'blue')
+  .attr('stroke-width', 2)
+  .attr('fill', 'none');
+}else{
+	d3.select("#vis2").append("g").text("Ni podatkov");
+
+}
+	
+
+}
+function izrisi3(){
+
+if(jsonArr3.length>0){
+console.log(jsonArr3);
+var vis = d3.select('#vis3'),
+     MARGINS = {
+      top: 20,
+      right: 20,
+      bottom: 20,
+      left: 40
+    },
+	WIDTH =$("#test2").width()-30,
+	
+    HEIGHT = 300,
+   
+    xRange = d3.scale.linear()
+	.range([MARGINS.left, WIDTH - MARGINS.right])
+	.domain([d3.min(jsonArr3, function(d) {
+      return 0;
+    }), d3.max(jsonArr3, function(d) {
+      return 10;
+    })]),
+    yRange = d3.scale.linear()
+	.range([HEIGHT - MARGINS.top, MARGINS.bottom])
+	.domain([d3.min(jsonArr3, function(d) {
+      return 60;
+    }), d3.max(jsonArr3, function(d) {
+      return 180;
+    })]),
+    xAxis = d3.svg.axis()
+      .scale(xRange)
+      .tickSize(5)
+      .tickSubdivide(true),
+    yAxis = d3.svg.axis()
+      .scale(yRange)
+      .tickSize(5)
+      .orient('left')
+      .tickSubdivide(true);
+ 
+vis.append('svg:g')
+  .attr('class', 'x axis')
+  .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+  .call(xAxis);
+ 
+vis.append('svg:g')
+  .attr('class', 'y axis')
+  .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+  .call(yAxis);
+  var lineFunc = d3.svg.line()
+  .x(function(d) {
+    return xRange(d.x);
+  })
+  .y(function(d) {
+    return yRange(d.y);
+  })
+  .interpolate('linear');
+  vis.append('svg:path')
+  .attr('d', lineFunc(jsonArr3))
   .attr('stroke', 'blue')
   .attr('stroke-width', 2)
   .attr('fill', 'none');

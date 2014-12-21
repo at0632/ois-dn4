@@ -22,13 +22,15 @@
 		
 	</head>
 	<body>
-		<div class="page-header"><h2>Vnos in poizvedovanje po EHR podatkih <small>EhrScape platforma</small></h2></div>	
+		<div class="page-header"><h2>Zasebni zdravniki/ordinacije <small>EhrScape platforma</small></h2></div>	
 		<div id="1" class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-8"><b>Kreiraj EHR zapis</b> za novega bolnika</div>
+							<div class="col-lg-8 col-md-8 col-sm-8">
+							Izberite bolnika
+							</div>
 							<button type="button" class="btn btn-primary btn-xs" 
 							onclick="novo()">Nov vnos</button>
 							<span id="kreirajSporocilo"></span>
@@ -40,10 +42,9 @@
 									<option value="a459f4a2-ca92-47ce-bf67-a831f47be902">Jan Novak</option>
 								</select>
 							</div>
-							
 						</div>
 					</div>
-					<<div id="vnos1" class="panel-body" hidden>
+					<div id="vnos1" class="panel-body" hidden>
 						<span class="label label-default">Ime</span><input id="kreirajIme" type="text" class="form-control input-mini" placeholder="Osama">
 						<span class="label label-default">Priimek</span><input id="kreirajPriimek" type="text" class="form-control" placeholder="Bin Laden">
 						<span class="label label-default">Spol</span><form  class="form-control"><input id="kreirajSpol" type="radio" name="sex" value="MALE">Moški<input id="kreirajSpol" type="radio" name="sex" value="FEMALE">Ženski</form>
@@ -99,7 +100,7 @@
 				  	</div>
 				</div>
 			</div>
-			<div onclick="temp()" class="col-lg-4 col-md-4 col-sm-4">
+			<div id="test2" class="col-lg-4 col-md-4 col-sm-4">
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -108,27 +109,47 @@
 						</div>
 					</div>
 						<button type="button" class="btn btn-primary btn-xs" 
-							onclick="preberiTemp()">Nov vnos</button>
+							onclick="nova1()">Nov vnos</button>
 							<button type="button" class="btn btn-primary btn-xs" 
 							onclick="generator()">Generiraj</button>
 					<svg id="vis2"  width="300" height="300"></svg>
-					
+					<div id="vnos3" class="panel-body" hidden>
+						<span class="label label-default">Datum in ura</span>
+						<input id="dodajVitalnoDatumInUra" type="text" 
+						class="form-control input-mini" placeholder="2014-11-21T11:40Z">
+						<span class="label label-default">Telesna temperatura</span>
+						<div class="input-group"><input id="dodajVitalnoTelesnaTemperatura" 
+						type="text" class="form-control input-mini" placeholder="36.5">
+						<span class="input-group-addon">°C</span></div>
+						
+						<button type="button" class="btn btn-primary btn-xs" onclick="dodajMeritveVitalnihZnakov()">Dodaj meritve vitalnih znakov</button><span id="dodajMeritveVitalnihZnakovSporocilo"></span>
+				  	</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4">
+			<div id="test3" class="col-lg-4 col-md-4 col-sm-4">
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<div>Prikaz krvnega tlaka in srčnega utripa</div>
+							<div>Prikaz krvnega tlaka</div>
 						</div>
 					</div>
 						<button type="button" class="btn btn-primary btn-xs" 
-							onclick="nova()">Nov vnos</button>
+							onclick="nova2()">Nov vnos</button>
 							<button type="button" class="btn btn-primary btn-xs" 
 							onclick="generator()">Generiraj</button>
-					<svg id="vis3"></svg>
-					
+					<svg id="vis3" width="300" height="300"></svg>
+					<div id="vnos4" class="panel-body" hidden>
+						<span class="label label-default">Datum in ura</span>
+						<input id="dodajVitalnoDatumInUra" type="text" 
+						class="form-control input-mini" placeholder="2014-11-21T11:40Z">
+						<span class="label label-default">Sistolični tlak</span>
+						<div class="input-group"><input id="dodajVitalnoTelesnaTemperatura" 
+						type="text" class="form-control input-mini" placeholder="36.5">
+						<span class="input-group-addon">mm Hg</span></div>
+						
+						<button type="button" class="btn btn-primary btn-xs" onclick="dodajMeritveVitalnihZnakov()">Dodaj meritve vitalnih znakov</button><span id="dodajMeritveVitalnihZnakovSporocilo"></span>
+				  	</div>
 				</div>
 			</div>	
 			<!--<div class="col-lg-6 col-md-6 col-sm-6">
@@ -172,6 +193,9 @@
 							<div id="rez1">
 						
 							</div>
+							<button type="button" 
+							class="btn btn-secondary btn-xs" 
+							onclick="odpri2()">Naroči se</button>
 						</div>
 					</div>
 				</div>
@@ -181,6 +205,9 @@
 							<div id="rez2">
 						
 							</div>
+							<button type="button" 
+							class="btn btn-secondary btn-xs" 
+							onclick="odpri3()">Naroči se</button>
 						</div>
 					</div>
 				</div>
